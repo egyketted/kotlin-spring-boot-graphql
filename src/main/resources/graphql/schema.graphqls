@@ -1,3 +1,29 @@
 type Query {
     hello: String
+    getCountries: [CountryDTO]!
+    getCountriesByName(name:String!): [CountryDTO]!
+}
+
+type Mutation {
+    createCountry(
+        name: String!,
+        population: Int!,
+        gdp: Int
+    ): CountryDTO!
+
+    updateCountry(
+        id: Int!
+        name: String!,
+        population: Int!,
+        gdp: Int!
+    ): CountryDTO!
+
+    deleteCountry(id: Int!): CountryDTO!
+}
+
+type CountryDTO {
+    id: ID,
+    name: String,
+    population: Int,
+    gdp: Int
 }
